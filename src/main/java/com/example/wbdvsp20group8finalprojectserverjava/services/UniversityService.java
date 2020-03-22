@@ -5,9 +5,16 @@ import com.example.wbdvsp20group8finalprojectserverjava.repositories.UniversityR
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UniversityService {
 
   @Autowired
   UniversityRepository universityRepository;
+
+  public boolean isValidName(String name) {
+    List<String> valid = universityRepository.findAllValid(name);
+    return (valid.size() != 0);
+  }
 }

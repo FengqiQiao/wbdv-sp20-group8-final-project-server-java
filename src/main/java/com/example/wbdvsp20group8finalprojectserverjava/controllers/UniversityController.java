@@ -15,4 +15,12 @@ public class UniversityController {
     @Autowired
     UniversityService service;
 
+    @GetMapping("/api/checkvalid/{uname}")
+    public boolean isValidName(
+            @PathVariable("uname") String uname) {
+        return service.isValidName(uname);
+    }
+
+
+
 }
