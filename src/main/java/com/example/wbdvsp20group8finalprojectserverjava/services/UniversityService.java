@@ -15,9 +15,11 @@ public class UniversityService {
 
   public int isValidName(String name) {
     List<String> valid = universityRepository.findAllValid(name);
-    if (valid.size() == 0) {
-      return 0;
+    if (valid.size() == 1) {
+      return (1);
     }
-    return 1;
+    else{
+      return (0);
+    }
   }
 }
