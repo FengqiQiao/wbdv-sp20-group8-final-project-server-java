@@ -13,8 +13,11 @@ public class UniversityService {
   @Autowired
   UniversityRepository universityRepository;
 
-  public boolean isValidName(String name) {
+  public int isValidName(String name) {
     List<String> valid = universityRepository.findAllValid(name);
-    return (valid.size() != 0);
+    if (valid.size() == 0) {
+      return 0;
+    }
+    return 1;
   }
 }
