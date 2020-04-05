@@ -14,7 +14,7 @@ public class UniversityController {
     UniversityService service;
 
     @GetMapping("/api/checkvalid/{uname}")
-    public boolean isValidName(
+    public int isValidName(
             @PathVariable("uname") String uname) {
         return service.isValidName(uname);
     }
