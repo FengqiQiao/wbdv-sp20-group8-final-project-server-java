@@ -1,7 +1,5 @@
 package com.example.wbdvsp20group8finalprojectserverjava.controllers;
 
-
-
 import com.example.wbdvsp20group8finalprojectserverjava.services.UniversityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
