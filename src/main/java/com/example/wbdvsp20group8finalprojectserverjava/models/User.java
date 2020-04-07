@@ -10,6 +10,7 @@ public class User {
     private String email;
     private String username;
     private String password;
+    private String role;
 
     public Integer getId() {
         return id;
@@ -44,6 +45,15 @@ public class User {
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    //    public User(int id, String email, String username, String password) {
 //    public User(int id, String email, String username, String password) {
 //        this.id = id;
 //        this.email = email;
