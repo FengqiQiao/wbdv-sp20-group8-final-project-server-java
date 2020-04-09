@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
+
+//debug
 @RestController
 @CrossOrigin(origins = "*", allowCredentials = "true")
 public class UserController {
