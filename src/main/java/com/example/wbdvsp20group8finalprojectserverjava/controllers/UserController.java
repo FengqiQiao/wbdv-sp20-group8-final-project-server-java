@@ -18,6 +18,7 @@ public class UserController {
     @PostMapping("/login")
     public User login(HttpSession session, @RequestBody User user) {
         User profile = repository.findUserByCredentials(user.getUsername(), user.getPassword());
+        profile.setPassword("***");
         session.setAttribute("profile", profile);
         return profile;
     }
