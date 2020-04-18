@@ -4,6 +4,7 @@ import com.example.wbdvsp20group8finalprojectserverjava.models.User;
 import com.example.wbdvsp20group8finalprojectserverjava.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.example.wbdvsp20group8finalprojectserverjava.services.UserService;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +15,9 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Autowired
     UserRepository repository;
+
+    @Autowired
+    UserService service;
 
     @PostMapping("/login")
     public User login(HttpSession session, @RequestBody User user) {
@@ -30,6 +34,8 @@ public class UserController {
 
     @PostMapping("/register")
     public User register(HttpSession session, @RequestBody User user) {
+        if(!service.isValidUserame(user.getUsername()))
+            return null;
         User newUser = repository.save(user);
         newUser.setPassword("***");
         session.setAttribute("profile", newUser);
