@@ -34,8 +34,6 @@ public class UserController {
 
     @PostMapping("/register")
     public User register(HttpSession session, @RequestBody User user) {
-        if(!service.isValidUserame(user.getUsername()))
-            return null;
         User newUser = repository.save(user);
         newUser.setPassword("***");
         session.setAttribute("profile", newUser);
@@ -47,5 +45,10 @@ public class UserController {
         User profile = (User)session.getAttribute("profile");
         profile.setPassword("***");
         return profile;
+    }
+
+    @GetMapping("/usernameCheck/{username}")
+    public int usernameCheck(@PathVariable("username") String username){
+        return service.isValidUsername(username);
     }
 }

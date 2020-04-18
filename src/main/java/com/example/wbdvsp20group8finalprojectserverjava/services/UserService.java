@@ -13,13 +13,13 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public boolean isValidUserame(String username) {
+    public int isValidUsername(String username) {
         User exist = userRepository.findUserByUsername(username);
         if (exist != null) {
-            return false;
+            return 0;
         }
         else{
-            return true;
+            return 1;
         }
     }
 }
