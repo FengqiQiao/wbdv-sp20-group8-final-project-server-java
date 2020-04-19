@@ -1,9 +1,7 @@
 package com.example.wbdvsp20group8finalprojectserverjava.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class University {
@@ -19,6 +17,18 @@ public class University {
   private int ranking;
   private String name;
   private String location;
+
+  @OneToMany(mappedBy = "university")
+  private List<Question> questions;
+
+
+  public List<Question> getQuestions() {
+    return questions;
+  }
+
+  public void setQuestions(List<Question> questions) {
+    this.questions = questions;
+  }
 
   public int getId() {
     return id;
