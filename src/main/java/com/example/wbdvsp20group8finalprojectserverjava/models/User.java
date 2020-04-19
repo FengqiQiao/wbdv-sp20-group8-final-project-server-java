@@ -19,7 +19,7 @@ public class User {
     private String birthday;
     private String nationality;
     private String currentSchool;
-    private String grade;
+    private String educationLevel;
     private String major;
     private Double gpa;
     private Integer toefl;
@@ -139,11 +139,11 @@ public class User {
     }
 
     public String getGrade() {
-        return grade;
+        return educationLevel;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setGrade(String educationLevel) {
+        this.educationLevel = educationLevel;
     }
 
     public String getMajor() {
