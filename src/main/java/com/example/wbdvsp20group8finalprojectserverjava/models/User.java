@@ -12,6 +12,8 @@ public class User {
     private String username;
     private String password;
     private String role;
+    private String firstName;
+    private String lastName;
 
     @OneToMany(mappedBy = "user")
     private List<Question> questions;
@@ -63,6 +65,22 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     //    public User(int id, String email, String username, String password) {
