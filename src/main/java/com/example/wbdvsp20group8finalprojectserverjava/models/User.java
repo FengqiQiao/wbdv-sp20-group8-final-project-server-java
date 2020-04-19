@@ -16,7 +16,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String gender;
-    private Date birthday;
+    private String birthday;
     private String nationality;
     private String currentSchool;
     private String grade;
@@ -29,6 +29,17 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Question> questions;
+
+    @OneToMany(mappedBy = "user")
+    private List<Answer> answers;
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
 
     public List<Question> getQuestions() {
         return questions;
@@ -103,11 +114,11 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 

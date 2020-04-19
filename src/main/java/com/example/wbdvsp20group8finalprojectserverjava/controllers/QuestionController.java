@@ -32,4 +32,9 @@ public class QuestionController {
     public Question createQuestion(@PathVariable("uid") Integer uid, @RequestBody Question question) {
         return questionService.createQuestion(uid, question);
     }
+
+    @DeleteMapping("/api/questions/{qid}")
+    public int deleteQuestion(@PathVariable("qid") Integer qid){
+        return questionService.deleteQuestion(qid);
+    }
 }

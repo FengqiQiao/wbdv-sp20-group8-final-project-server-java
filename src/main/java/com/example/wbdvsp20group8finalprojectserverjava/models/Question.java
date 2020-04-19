@@ -2,6 +2,7 @@ package com.example.wbdvsp20group8finalprojectserverjava.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "questions")
@@ -22,6 +23,25 @@ public class Question {
 
     @ManyToOne
     private University university;
+
+    @OneToMany(mappedBy = "question",cascade = CascadeType.REMOVE)
+    private List<Answer> answers;
+
+    public String getQuestionContent() {
+        return questionContent;
+    }
+
+    public void setQuestionContent(String questionContent) {
+        this.questionContent = questionContent;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
 
     public Integer getId() {
         return id;

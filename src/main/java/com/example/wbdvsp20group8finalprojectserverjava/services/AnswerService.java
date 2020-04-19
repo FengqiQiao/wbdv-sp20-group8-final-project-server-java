@@ -31,4 +31,9 @@ public class AnswerService {
         answer.setQuestion(question);
         return answerRepository.save(answer);
     }
+
+    public int deleteAnswer(Integer aid){
+        answerRepository.deleteById(aid);
+        return 1;
+    }
 }
