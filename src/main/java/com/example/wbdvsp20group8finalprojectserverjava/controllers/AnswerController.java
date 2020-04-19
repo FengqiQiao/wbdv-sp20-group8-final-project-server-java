@@ -28,4 +28,8 @@ public class AnswerController {
         return answerService.createAnswer(qid,answer);
     }
 
+    @DeleteMapping("/api/answers/{aid}")
+    public int deleteAnswer(@PathVariable("aid") Integer aid){
+        return answerService.deleteAnswer(aid);
+    }
 }

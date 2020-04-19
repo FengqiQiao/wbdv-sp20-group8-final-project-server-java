@@ -34,4 +34,9 @@ public class QuestionService {
     public List<Question> findQuestionsForUser(Integer uid){
         return questionRepository.findQuestionsForUser(uid);
     }
+
+    public int deleteQuestion(Integer qid){
+        questionRepository.deleteById(qid);
+        return 1;
+    }
 }
