@@ -47,6 +47,17 @@ public class UserController {
         return profile;
     }
 
+    @PutMapping("/updateUser")
+    public int updateUser(HttpSession session, @RequestBody User user) {
+        if(repository.findById(user.getId()).isPresent()){
+            User editedUser = repository.save(user);
+            editedUser.setPassword("***");
+            session.setAttribute("profile", editedUser);
+            return 1;
+        }
+        return 0;
+    }
+
     @GetMapping("/usernameCheck/{username}")
     public int usernameCheck(@PathVariable("username") String username){
         return service.isValidUsername(username);
