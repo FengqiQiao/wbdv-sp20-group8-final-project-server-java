@@ -22,7 +22,7 @@ public class UserController {
     @PostMapping("/login")
     public User login(HttpSession session, @RequestBody User user) {
         User profile = repository.findUserByCredentials(user.getUsername(), user.getPassword());
-        profile.setPassword("***");
+        //profile.setPassword("***");
         session.setAttribute("profile", profile);
         return profile;
     }
@@ -35,7 +35,7 @@ public class UserController {
     @PostMapping("/register")
     public User register(HttpSession session, @RequestBody User user) {
         User newUser = repository.save(user);
-        newUser.setPassword("***");
+        //newUser.setPassword("***");
         session.setAttribute("profile", newUser);
         return newUser;
     }
@@ -43,7 +43,7 @@ public class UserController {
     @PostMapping("/profile")
     public User profile(HttpSession session) {
         User profile = (User)session.getAttribute("profile");
-        profile.setPassword("***");
+        //profile.setPassword("***");
         return profile;
     }
 
@@ -51,7 +51,7 @@ public class UserController {
     public int updateUser(HttpSession session, @RequestBody User user) {
         if(repository.findById(user.getId()).isPresent()){
             User editedUser = repository.save(user);
-            editedUser.setPassword("***");
+            //editedUser.setPassword("***");
             session.setAttribute("profile", editedUser);
             return 1;
         }
