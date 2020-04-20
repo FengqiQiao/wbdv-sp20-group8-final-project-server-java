@@ -20,7 +20,7 @@ public class UniversityController {
     }
 
     @GetMapping("/api/universities/{uname}")
-    public List<University> findUniversityByName(
+    public University findUniversityByName(
             @PathVariable("uname") String uname) {
                 return service.findUniversityByName(uname);
     }

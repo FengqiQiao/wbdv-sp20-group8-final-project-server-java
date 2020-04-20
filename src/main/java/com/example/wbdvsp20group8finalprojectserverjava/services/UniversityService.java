@@ -26,7 +26,7 @@ public class UniversityService {
     }
   }
 
-  public List<University> findUniversityByName(String universityName){
+  public University findUniversityByName(String universityName){
     return universityRepository.findUniversityByName(universityName);
   }
 }

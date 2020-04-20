@@ -13,5 +13,5 @@ public interface UniversityRepository extends CrudRepository<University, Integer
   public List<String> findAllValid(@Param("uname") String universityName);
 
   @Query(value = "SELECT university.name FROM University university WHERE university.name=:uname", nativeQuery = true)
-  public List<University> findUniversityByName(@Param("uname") String universityName);
+  public University findUniversityByName(@Param("uname") String universityName);
 }
