@@ -17,6 +17,8 @@ public class University {
   private int ranking;
   private String name;
   private String location;
+  private String salary;
+  private String imgURL;
 
   @OneToMany(mappedBy = "university")
   private List<Question> questions;
@@ -92,6 +94,22 @@ public class University {
 
   public void setLocation(String location) {
     this.location = location;
+  }
+
+  public String getSalary() {
+    return salary;
+  }
+
+  public void setSalary(String salary) {
+    this.salary = salary;
+  }
+
+  public String getImgURL() {
+    return imgURL;
+  }
+
+  public void setImgURL(String imgURL) {
+    this.imgURL = imgURL;
   }
 
   public University() {
