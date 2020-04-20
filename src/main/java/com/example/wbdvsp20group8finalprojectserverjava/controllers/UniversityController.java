@@ -19,6 +19,9 @@ public class UniversityController {
         return service.isValidName(uname);
     }
 
-
-
+    @GetMapping("/api/universities/{uname}")
+    public List<University> findUniversityByName(
+            @PathVariable("uname") String uname) {
+                return service.findUniversityByName(uname);
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.wbdvsp20group8finalprojectserverjava.services;
 
+import com.example.wbdvsp20group8finalprojectserverjava.models.University;
 import com.example.wbdvsp20group8finalprojectserverjava.repositories.UniversityRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,9 @@ public class UniversityService {
     else{
       return (0);
     }
+  }
+
+  public List<University> findUniversityByName(String universityName){
+    return universityRepository.findUniversityByName(universityName);
   }
 }

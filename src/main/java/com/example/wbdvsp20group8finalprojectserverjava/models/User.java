@@ -138,11 +138,11 @@ public class User {
         this.currentSchool = currentSchool;
     }
 
-    public String getGrade() {
+    public String getEducationLevel() {
         return educationLevel;
     }
 
-    public void setGrade(String educationLevel) {
+    public void setEducationLevel(String educationLevel) {
         this.educationLevel = educationLevel;
     }
 
