@@ -1,5 +1,6 @@
 package com.example.wbdvsp20group8finalprojectserverjava.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
@@ -15,8 +16,10 @@ public class Answer {
     private String time;
 
     @ManyToOne
+    @JsonIgnore
     private User user;
     @ManyToOne
+    @JsonIgnore
     private Question question;
 
     public Answer() {

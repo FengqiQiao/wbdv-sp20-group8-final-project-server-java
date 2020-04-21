@@ -17,8 +17,8 @@ public class QuestionService {
     @Autowired
     UniversityRepository universityRepository;
 
-    public Question createQuestion(Integer uid,Question question){
-        University university = universityRepository.findById(uid).get();
+    public Question createQuestion(String universityName,Question question){
+        University university = universityRepository.findUniversityByName(universityName);
         question.setUniversity(university);
         return questionRepository.save(question);
     }
@@ -27,8 +27,8 @@ public class QuestionService {
         return (List<Question>) questionRepository.findAll();
     }
 
-    public List<Question> findQuestionsForUniversity(Integer uid){
-        return questionRepository.findQuestionsForUniversity(uid);
+    public List<Question> findQuestionsForUniversity(String universityName){
+        return questionRepository.findQuestionsForUniversity(universityName);
     }
 
     public List<Question> findQuestionsForUser(Integer uid){
@@ -38,5 +38,9 @@ public class QuestionService {
     public int deleteQuestion(Integer qid){
         questionRepository.deleteById(qid);
         return 1;
+    }
+
+    public Question findQuestionById(Integer qid){
+        return questionRepository.findById(qid).get();
     }
 }

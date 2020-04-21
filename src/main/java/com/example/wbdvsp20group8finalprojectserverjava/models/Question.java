@@ -1,5 +1,7 @@
 package com.example.wbdvsp20group8finalprojectserverjava.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -19,9 +21,11 @@ public class Question {
     }
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     @ManyToOne
+    @JsonIgnore
     private University university;
 
     @OneToMany(mappedBy = "question",cascade = CascadeType.REMOVE)

@@ -18,9 +18,9 @@ public class QuestionController {
         return questionService.findAllQuestions();
     }
 
-    @GetMapping("/api/universities/{uid}/questions")
-    public List<Question> findQuestionsForUniversity(@PathVariable("uid") Integer uid){
-        return questionService.findQuestionsForUniversity(uid);
+    @GetMapping("/api/universities/{universityName}/questions")
+    public List<Question> findQuestionsForUniversity(@PathVariable("universityName") String universityName){
+        return questionService.findQuestionsForUniversity(universityName);
     }
 
     @GetMapping("/api/users/{uid}/questions")
@@ -28,13 +28,18 @@ public class QuestionController {
         return questionService.findQuestionsForUser(uid);
     }
 
-    @PostMapping("/api/universities/{uid}/questions")
-    public Question createQuestion(@PathVariable("uid") Integer uid, @RequestBody Question question) {
-        return questionService.createQuestion(uid, question);
+    @PostMapping("/api/universities/{universityName}/questions")
+    public Question createQuestion(@PathVariable("universityName") String universityName, @RequestBody Question question) {
+        return questionService.createQuestion(universityName, question);
     }
 
     @DeleteMapping("/api/questions/{qid}")
     public int deleteQuestion(@PathVariable("qid") Integer qid){
         return questionService.deleteQuestion(qid);
+    }
+
+    @GetMapping("api/questions/{qid}")
+    public Question findQuestionById(@PathVariable("qid") Integer qid) {
+        return questionService.findQuestionById(qid);
     }
 }
