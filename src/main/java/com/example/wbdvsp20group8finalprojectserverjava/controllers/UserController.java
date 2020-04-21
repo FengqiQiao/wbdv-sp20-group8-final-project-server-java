@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     UserService service;
 
-    @PostMapping("/login")
+    @PostMapping("/api/login")
     public User login(HttpSession session, @RequestBody User user) {
         User profile = repository.findUserByCredentials(user.getUsername(), user.getPassword());
         profile.setPassword("***");
@@ -27,12 +27,12 @@ public class UserController {
         return profile;
     }
 
-    @PostMapping("/logout")
+    @PostMapping("/api/logout")
     public void logout(HttpSession session) {
         session.invalidate();
     }
 
-    @PostMapping("/register")
+    @PostMapping("/api/register")
     public User register(HttpSession session, @RequestBody User user) {
         User newUser = repository.save(user);
         newUser.setPassword("***");
@@ -40,14 +40,14 @@ public class UserController {
         return newUser;
     }
 
-    @PostMapping("/profile")
+    @PostMapping("/api/profile")
     public User profile(HttpSession session) {
         User profile = (User)session.getAttribute("profile");
         profile.setPassword("***");
         return profile;
     }
 
-    @PutMapping("/updateUser")
+    @PutMapping("/api/updateUser")
     public int updateUser(HttpSession session, @RequestBody User user) {
         if(repository.findById(user.getId()).isPresent()){
             User editedUser = repository.save(user);
@@ -58,7 +58,7 @@ public class UserController {
         return 0;
     }
 
-    @GetMapping("/usernameCheck/{username}")
+    @GetMapping("/api/usernameCheck/{username}")
     public int usernameCheck(@PathVariable("username") String username){
         return service.isValidUsername(username);
     }

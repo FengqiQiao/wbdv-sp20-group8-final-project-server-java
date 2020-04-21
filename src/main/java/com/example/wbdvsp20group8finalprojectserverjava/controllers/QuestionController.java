@@ -38,7 +38,7 @@ public class QuestionController {
         return questionService.deleteQuestion(qid);
     }
 
-    @GetMapping("api/questions/{qid}")
+    @GetMapping("/api/questions/{qid}")
     public Question findQuestionById(@PathVariable("qid") Integer qid) {
         return questionService.findQuestionById(qid);
     }
