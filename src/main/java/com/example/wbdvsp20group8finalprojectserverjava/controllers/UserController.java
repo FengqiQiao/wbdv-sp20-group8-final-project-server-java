@@ -53,7 +53,7 @@ public class UserController {
             User editedUser = repository.save(user);
             editedUser.setPassword("***");
             session.setAttribute("profile", editedUser);
-            return ((User)session.getAttribute("profile")).getToefl();
+            return 1;
         }
         return 0;
     }
